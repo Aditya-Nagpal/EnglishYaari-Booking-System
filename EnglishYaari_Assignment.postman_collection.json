@@ -1,0 +1,108 @@
+{
+    "info": {
+        "name": "EnglishYaari Backend Assignment",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Create Teacher (Helper)",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:8000/teachers",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"fullName\": \"Sarah Jenkins\",\n  \"email\": \"sarah@example.com\",\n  \"specialization\": \"IELTS\",\n  \"experience\": 5\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "API 1 - Create User",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:8000/users",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"fullName\": \"Rahul Sharma\",\n  \"email\": \"rahul@example.com\",\n  \"phone\": \"+919876543210\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "API 2 - Create Session",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:8000/sessions",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"teacherId\": \"<PASTE_TEACHER_ID>\",\n  \"startTime\": \"2026-11-01T10:00:00.000Z\",\n  \"endTime\": \"2026-11-01T11:00:00.000Z\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "API 3 - Available Sessions",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "http://localhost:8000/sessions/available?dateTimestamp=2026-11-01",
+                    "host": [
+                        "http://localhost:8000"
+                    ],
+                    "path": [
+                        "sessions",
+                        "available"
+                    ],
+                    "query": [
+                        {
+                            "key": "dateTimestamp",
+                            "value": "2026-11-01"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "API 4 - Book Session",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:8000/sessions/<PASTE_SESSION_ID>/book",
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n  \"userId\": \"<PASTE_USER_ID>\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "API 5 - Mark Session Complete",
+            "request": {
+                "method": "PATCH",
+                "url": "http://localhost:8000/sessions/<PASTE_SESSION_ID>/complete"
+            }
+        },
+        {
+            "name": "API 6 - User Session List",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8000/users/<PASTE_USER_ID>/sessions"
+            }
+        }
+    ]
+}
